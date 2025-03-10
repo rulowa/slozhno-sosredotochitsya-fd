@@ -1,5 +1,296 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  block-size: 100%;
+  min-height: 100vh;
+  background: var(--bg-color) var(--page-bg) center fixed;
+  font-family: var(--main-text-font);
+}
+
+.rec {
+  position: absolute;
+  text-transform: uppercase;
+  right: var(--rec-right);
+  top: var(--rec-top);
+  line-height: 25px;
+  color: var(--accent-color);
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+}
+
+.rec::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 43px;
+  inline-size: 8px;
+  block-size: 8px;
+  background: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  border-radius: 50%;
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::after {
+  top: var(--corner-position);
+  right: var(--corner-position);
+  border: solid var(--corners-color);
+  border-width: 1px 1px 0 0;
+}
+
+.decorated-zone::before {
+  bottom: var(--corner-position);
+  left: var(--corner-position);
+  border: solid var(--corners-color);
+  border-width: 0 0 1px 1px;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  block-size: 100vh;
+  min-height: var(--header-footer-min-height);
+  padding: var(--page-padding);
+  margin-block-end: var(--header-margin-block-end);
+}
+
+.header__theme-menu {
+  margin-block-start: var(--menu-margin-block-start);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  inline-size: 70px;
+  block-size: 26px;
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+  color: var(--header__theme-menu-button-color);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-hover-border-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid;
+  pointer-events: none;
+}
+
+.title {
+  font-weight: var(--bold-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--title-color);
+  line-height: var(--title-line-height);
+  text-shadow: 4px 4px 0 var(--accent-color);
+  margin-block-start: var(--title-margin-block-start);
+}
+
+.title-descripton {
+  inline-size: var(--title-descripton-inline-size);
+  margin-block-end: var(--title-description-margin-block-end);
+}
+
+.title-descripton-text {
+  font-size: var(--main-text-size);
+  font-weight: var(--bold-font-weight);
+  color: var(--subtitles-color);
+  line-height: var(--main-text-line-height);
+  background-color: var(--accent-color);
+}
+
+.title-decor {
+  font-size: var(--main-text-size);
+  font-weight: var(--bold-font-weight);
+  color: var(--subtitles-color);
+  background-color: var(--accent-color);
+}
+
+.content {
+  font-size: var(--main-text-size);
+  line-height: var(--main-text-line-height);
+  padding: var(--page-padding);
+}
+
+.text-link {
+  text-shadow: 2px 1px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  border-bottom: 1px solid var(--main-color);
+}
+
+.text-link:focus-visible {
+  outline: 1px solid var(--main-color);
+}
+
+.topic-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--topic-item-gap);
+}
+
+.topic-item:not(:last-child) {
+  margin-block-end: var(--topic-item-margin-block-end);
+}
+
+.topic-title {
+  font-weight: var(--bold-font-weight);
+  color: var(--topic-title-color);
+}
+
+.topic-articles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--topic-articles-list-gap);
+}
+
+.topic-article-text {
+  margin-block-start: var(--topic-article-content-margin-block-start);
+  font-size: var(--main-text-size);
+  font-weight: var(--regular-font-weight);
+  color: var(--main-color);
+}
+
+.piece-of-advice {
+  font-weight: var(--regular-font-weight);
+}
+
+.gallery-topic {
+  gap: 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-block-start: var(--topic-article-content-margin-block-start);
+  gap: var(--gallery-gap);
+}
+
+.gallery-item {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  block-size: 100vh;
+  min-height: var(--header-footer-min-height);
+  margin-block-start: var(--footer-margin-block-start);
+}
+
+.footer-title {
+  align-self: center;
+  text-align: center;
+  font-weight: var(--bold-font-weight);
+  font-size: var(--title-font-size);
+  color: var(--title-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  line-height: var(--title-line-height);
+}
+
+@media (width >= 768px) {
+  .title {
+    margin-inline-start: -20px;
+  }
+
+  .title-descripton {
+    margin-inline-start: auto;
+  }
+
+  .topic-item {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .what-topic .topic-articles-list {
+    grid-row: 2;
+    grid-column: span 2;
+  }
+
+  .how-topic .topic-title {
+    grid-row: span 2;
+  }
+
+  .how-topic .topic-articles-list {
+    grid-column: 2;
+  }
+
+  .gallery-topic {
+    gap: var(--gallery-gap);
+  }
+
+  .gallery-topic .topic-article-title {
+    grid-column: span 2;
+  }
+
+  .gallery {
+    grid-column: span 2;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--topic-item-gap);
+    margin-block-start: 0;
+  }
+
+  .sunset {
+    grid-column: span 2;
+  }
+
+  .ice-cream {
+    grid-row: span 2;
+  }
+
+  .tape {
+    grid-row: span 2;
+  }
+
+  .street {
+    grid-column: span 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu-list {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .what-topic .topic-articles-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .why-topic {
+    gap: 20px 10px;
+  }
+
+  .how-topic {
+    gap: 20px 10px;
+  }
 }
