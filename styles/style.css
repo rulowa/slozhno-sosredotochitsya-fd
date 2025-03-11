@@ -1,7 +1,12 @@
 .page {
   block-size: 100%;
   min-height: 100vh;
-  background: var(--bg-color) var(--page-bg) center fixed;
+  background-color: var(--bg-color);
+  background-image: var(--page-bg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: var(--main-text-font);
 }
 
@@ -92,6 +97,7 @@
 }
 
 .header__theme-menu-button:focus-visible {
+  outline: none;
   border-bottom: 1px solid var(--accent-color);
 }
 
@@ -110,8 +116,8 @@
 }
 
 .title-descripton {
-  inline-size: var(--title-descripton-inline-size);
-  margin-block-end: var(--title-description-margin-block-end);
+  width: 100%;
+  max-width: var(--title-descripton-inline-size);
 }
 
 .title-descripton-text {
