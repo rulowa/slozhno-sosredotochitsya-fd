@@ -98,7 +98,7 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--main-color);
 }
 
 .header__theme-menu-button_active {
@@ -224,13 +224,14 @@
   line-height: var(--title-line-height);
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
   .title {
     margin-inline-start: -20px;
   }
 
   .title-descripton {
     margin-inline-start: auto;
+    /* transform: translateY(7px); */
   }
 
   .topic-item {
@@ -282,7 +283,7 @@
   }
 }
 
-@media (width >= 1024px) {
+@media (width >=1024px) {
   .header__theme-menu-list {
     justify-content: center;
     flex-direction: row;
@@ -298,5 +299,9 @@
 
   .how-topic {
     gap: 20px 10px;
+  }
+
+  .title-descripton {
+    transform: translateY(6px);
   }
 }
